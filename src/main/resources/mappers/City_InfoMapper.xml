@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.graduate.demo1.dao.City_infoDao">
+
+    <select id="getCity_infosByCityAndAge" parameterType="String" resultType="com.graduate.demo1.model.City_info">
+        select * from city_info where city = #{city} and age &gt;= #{min_age} and age &lt;= #{max_age} order by order_num asc
+    </select>
+
+    <select id="findCity_infos" resultType="com.graduate.demo1.model.City_info">
+        select * from city_info
+    </select>
+
+    <select id="getOrder" parameterType="String" resultType="int">
+        select order_num from city_info where time = #{time} and city = #{city}
+    </select>
+
+</mapper>

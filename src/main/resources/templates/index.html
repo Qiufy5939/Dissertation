@@ -1,0 +1,922 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="../static/css/style_test.css" type="text/css" rel="stylesheet"/>
+    <script>
+        $(function(){
+            $(document).ready(function(){
+                //jquery load方法加载公共头部
+                $("#left_load_html").load("./main_left_bottom.html");
+            });
+        })
+    </script>
+</head>
+<body>
+<div id="main_content">
+    <div id="main_left">
+        <div id="main_left_top"><img src="../static/img/sushi2.png" width="150px"></div>
+        <div id="main_left_bottom">
+            <div id="main_left_bottom_first">
+                <br>
+                <h5 class="text-secondary">本系统共记载苏东坡二十八段经历</h5>
+            </div>
+            <div id="main_left_bottom_second">
+                <hr>
+                <div id="left_load_html">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main_mid_top"><img src="../static/img/title.PNG" width="900px"></div>
+    <div id="main_mid"></div>
+    <div id="main_right">
+        <div id="right_city"><h3><span class="badge badge-danger-my">苏轼（苏东坡）</span></h3></div>
+        <div id="right_info"><span class="text-primary">1036年12月19日--1101年7月28日【农历】</span></div>
+        <hr class="bg-green">
+        <div class="right_content">
+            <div><span>苏东坡，字子瞻，一字和仲，号铁冠道人、东坡居士，世称苏东坡、苏仙、坡仙，汉族，眉州眉山（今四川省眉山市）人，
+                祖籍河北栾城，北宋文学家、书法家、美食家、画家，历史治水名人。<br><br>嘉祐二年（1057年），苏轼进士及第。
+                宋神宗时曾在凤翔、杭州、密州、徐州、湖州等地任职。元丰三年（1080年），因“乌台诗案”被贬为黄州团练副使。宋哲宗即位后任翰林学士、
+                侍读学士、礼部尚书等职，并出知杭州、颍州、扬州、定州等地，晚年因新党执政被贬惠州、儋州。宋徽宗时获大赦北还，途中
+                于常州病逝。宋高宗时追赠太师；宋孝宗时追谥“文忠”。<br><br>苏轼是北宋中期文坛领袖，在诗、词、散文、书、画等方面取得很
+                高成就。文纵横恣肆；诗题材广阔，清新豪健，善用夸张比喻，独具风格，与黄庭坚并称“苏黄”；词开豪放一派，与辛弃疾同是豪
+                放派代表，并称“苏辛”；散文著述宏富，豪放自如，与欧阳修并称“欧苏”，为“唐宋八大家”之一。苏轼善书，“宋四家”之一；擅长
+                文人画，尤擅墨竹、怪石、枯木等。李志敏评价：“苏轼是全才式的艺术巨匠。”<br><br>作品有《东坡七集》《东坡易传》《东坡乐府》
+                《潇湘竹石图》《枯木怪石图》等。</span><span class="text-black-50">（来源百度百科）</span></div>
+            <div class="align-my">
+                <div class="bg-green text-align-my"><img src="../static/img/su_pic.png" width="80%"></div>
+                <div class="text-align-my">（苏轼画像）<br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../static/js/echarts-3.4.0.js"></script>
+<script src="../static/js/bmap.js"></script>
+
+<script src="../static/js/jquery-2.0.0.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0UqXGL98FSmi22w2Rl6HK56I"></script>
+<script type="module">
+    import style_map from "../static/js/style_map.js";
+    import city_position from "../static/js/cityPosition.js";
+    import zeroData from "../static/js/zeroData.js"
+
+    var myChart = echarts.init(document.getElementById('main_mid'));
+
+    var geoCoordMap = city_position;
+
+    var ZeroData = zeroData;
+    var FirstData = [
+        [{name: '眉山'}, {name: '成都', value: 70}],
+        [{name: '成都'}, {name: '眉山', value: 40}],
+        [{name: '眉山'}, {name: '成都', value: 70}],
+        [{name: '成都'}, {name: '雅安', value: 90}],
+        [{name: '雅安'}, {name: '眉山', value: 40}]
+    ];
+
+    var SecondData = [
+        [{name: '青神'}, {name: '眉山', value: 30}],
+        [{name: '眉山'}, {name: '成都', value: 90}],
+        [{name: '成都'}, {name: '剑阁', value: 80}],
+        [{name: '剑阁'}, {name: '眉县', value: 70}],
+        [{name: '眉县'}, {name: '扶风', value: 60}],
+        [{name: '扶风'}, {name: '西安', value: 50}],
+        [{name: '西安'}, {name: '临潼', value: 40}],
+        [{name: '临潼'}, {name: '灵宝', value: 60}],
+        [{name: '灵宝'}, {name: '渑池', value: 60}],
+        [{name: '渑池'}, {name: '开封', value: 90}],
+        [{name: '开封'}, {name: '眉山', value: 30}],
+        [{name: '青神'}, {name: '青神', value: 30}]     //special line
+    ];
+
+    var ThirdData = [
+        [{name: '彭山'}, {name: '眉山', value: 90}],
+        [{name: '眉山'}, {name: '成都', value: 90}],
+        [{name: '成都'}, {name: '眉山', value: 90}],
+        [{name: '彭山'}, {name: '彭山', value: 30}]     //special line
+    ];
+
+    var FourthData = [
+        [{name: '青神'}, {name: '眉山', value: 95}],
+        [{name: '眉山'}, {name: '乐山', value: 90}],
+        [{name: '乐山'}, {name: '犍为', value: 80}],
+        [{name: '犍为'}, {name: '宜宾', value: 70}],
+        [{name: '宜宾'}, {name: '江安', value: 60}],
+        [{name: '江安'}, {name: '合江', value: 70}],
+        [{name: '合江'}, {name: '重庆', value: 60}],
+        [{name: '重庆'}, {name: '涪陵', value: 50}],
+        [{name: '涪陵'}, {name: '丰都', value: 40}],
+        [{name: '丰都'}, {name: '忠县', value: 30}],
+        [{name: '忠县'}, {name: '万州', value: 30}],
+        [{name: '万州'}, {name: '奉节', value: 30}],
+        [{name: '奉节'}, {name: '巫山', value: 95}],
+        [{name: '巫山'}, {name: '巴东', value: 90}],
+        [{name: '巴东'}, {name: '兴山', value: 80}],
+        [{name: '兴山'}, {name: '秭归', value: 70}],
+        [{name: '秭归'}, {name: '宜昌', value: 60}],
+        [{name: '宜昌'}, {name: '沙市', value: 70}],
+        [{name: '沙市'}, {name: '荆门', value: 60}],
+        [{name: '荆门'}, {name: '钟祥', value: 50}],
+        [{name: '钟祥'}, {name: '宜城', value: 40}],
+        [{name: '宜城'}, {name: '襄阳', value: 30}],
+        [{name: '襄阳'}, {name: '唐河', value: 30}],
+        [{name: '唐河'}, {name: '叶县', value: 30}],
+        [{name: '叶县'}, {name: '襄城', value: 95}],
+        [{name: '襄城'}, {name: '许昌', value: 90}],
+        [{name: '许昌'}, {name: '尉氏', value: 80}],
+        [{name: '尉氏'}, {name: '开封', value: 70}],
+        [{name: '开封'}, {name: '郑州', value: 60}],
+        [{name: '郑州'}, {name: '渑池', value: 70}],
+        [{name: '渑池'}, {name: '西安', value: 60}],
+        [{name: '西安'}, {name: '凤翔', value: 50}],
+        [{name: '凤翔'}, {name: '宝鸡', value: 40}],
+        [{name: '宝鸡'}, {name: '眉县', value: 30}],
+        [{name: '青神'}, {name: '青神', value: 30}]     //special line
+    ];
+
+    var FifthData = [
+        [{name: '周至'}, {name: '眉县', value: 95}],
+        [{name: '眉县'}, {name: '凤翔', value: 50}],
+        [{name: '凤翔'}, {name: '眉县', value: 80}],
+        [{name: '眉县'}, {name: '宝鸡', value: 70}],
+        [{name: '宝鸡'}, {name: '凤翔', value: 50}],
+        [{name: '凤翔'}, {name: '眉县', value: 95}],
+        [{name: '眉县'}, {name: '凤翔', value: 50}],
+        [{name: '凤翔'}, {name: '西安', value: 80}],
+        [{name: '西安'}, {name: '凤翔', value: 50}],
+        [{name: '凤翔'}, {name: '扶风', value: 60}],
+        [{name: '扶风'}, {name: '凤翔', value: 50}],
+        [{name: '凤翔'}, {name: '西安', value: 80}],
+        [{name: '西安'}, {name: '宝鸡', value: 70}],
+        [{name: '宝鸡'}, {name: '凤翔', value: 50}],
+        [{name: '凤翔'}, {name: '宝鸡', value: 70}],
+        [{name: '宝鸡'}, {name: '眉县', value: 95}],
+        [{name: '眉县'}, {name: '岐山', value: 90}],
+        [{name: '岐山'}, {name: '凤翔', value: 50}],
+        [{name: '凤翔'}, {name: '周至', value: 40}],
+        [{name: '周至'}, {name: '扶风', value: 60}],
+        [{name: '扶风'}, {name: '凤翔', value: 50}],
+        [{name: '凤翔'}, {name: '周至', value: 40}]
+    ];
+
+    var SixthData = [
+        [{name: '凤翔'}, {name: '周至', value: 95}],
+        [{name: '周至'}, {name: '凤翔', value: 70}],
+        [{name: '凤翔'}, {name: '岐山', value: 80}],
+        [{name: '岐山'}, {name: '凤翔', value: 70}]
+    ];
+    var SeventhData = [
+        [{name: '周至'}, {name: '凤翔', value: 80}],
+        [{name: '凤翔'}, {name: '武功', value: 90}],
+        [{name: '武功'}, {name: '凤翔', value: 80}],
+        [{name: '凤翔'}, {name: '西安', value: 70}],
+        [{name: '西安'}, {name: '临潼', value: 60}],
+        [{name: '临潼'}, {name: '渭南', value: 90}],
+        [{name: '渭南'}, {name: '华阴', value: 80}],
+        [{name: '华阴'}, {name: '陕县', value: 70}],
+        [{name: '陕县'}, {name: '郑州', value: 60}],
+        [{name: '郑州'}, {name: '开封', value: 90}],
+        [{name: '开封'}, {name: '盱眙', value: 80}],
+        [{name: '盱眙'}, {name: '鄂州', value: 70}],
+        [{name: '鄂州'}, {name: '石首', value: 60}],
+        [{name: '石首'}, {name: '沙市', value: 90}],
+        [{name: '沙市'}, {name: '宜昌', value: 80}],
+        [{name: '宜昌'}, {name: '云阳', value: 70}],
+        [{name: '云阳'}, {name: '丰都', value: 60}],
+        [{name: '丰都'}, {name: '眉山', value: 90}],
+        [{name: '周至'}, {name: '周至', value: 30}]     //special line
+    ];
+    var EighthData = [
+        [{name: '彭山'}, {name: '眉山', value: 70}],
+        [{name: '眉山'}, {name: '乐山', value: 90}],
+        [{name: '乐山'}, {name: '宜宾', value: 80}],
+        [{name: '宜宾'}, {name: '眉山', value: 70}]
+    ];
+    var NinthData = [
+        [{name: '成都'}, {name: '眉山', value: 95}],
+        [{name: '眉山'}, {name: '青神', value: 90}],
+        [{name: '青神'}, {name: '眉山', value: 80}],
+        [{name: '眉山'}, {name: '广元', value: 70}],
+        [{name: '广元'}, {name: '凤翔', value: 60}],
+        [{name: '凤翔'}, {name: '西安', value: 70}],
+        [{name: '西安'}, {name: '开封', value: 60}],
+        [{name: '成都'}, {name: '成都', value: 30}]     //special line
+    ];
+    var TenthData = [
+        [{name: '洛阳'}, {name: '开封', value: 95}],
+        [{name: '开封'}, {name: '淮阳', value: 90}],
+        [{name: '淮阳'}, {name: '阜阳', value: 80}],
+        [{name: '阜阳'}, {name: '凤台', value: 70}],
+        [{name: '凤台'}, {name: '怀远', value: 60}],
+        [{name: '怀远'}, {name: '凤阳', value: 95}],
+        [{name: '凤阳'}, {name: '盱眙', value: 90}],
+        [{name: '盱眙'}, {name: '淮安', value: 80}],
+        [{name: '淮安'}, {name: '扬州', value: 70}],
+        [{name: '扬州'}, {name: '镇江', value: 60}],
+        [{name: '镇江'}, {name: '苏州', value: 95}],
+        [{name: '苏州'}, {name: '余杭', value: 90}],
+        [{name: '余杭'}, {name: '杭州', value: 80}],
+        [{name: '杭州'}, {name: '余杭', value: 70}],
+        [{name: '余杭'}, {name: '临安', value: 60}],
+        [{name: '临安'}, {name: '杭州', value: 95}],
+        [{name: '洛阳'}, {name: '洛阳', value: 30}]     //special line
+    ];
+    var EleventhData = [
+        [{name: '余杭'}, {name: '海宁', value: 95}],
+        [{name: '海宁'}, {name: '杭州', value: 90}],
+        [{name: '杭州'}, {name: '湖州', value: 80}],
+        [{name: '湖州'}, {name: '嘉兴', value: 70}],
+        [{name: '嘉兴'}, {name: '杭州', value: 60}],
+        [{name: '杭州'}, {name: '富阳', value: 90}],
+        [{name: '富阳'}, {name: '杭州', value: 80}],
+        [{name: '杭州'}, {name: '建德', value: 70}],
+        [{name: '建德'}, {name: '金华', value: 60}],
+        [{name: '金华'}, {name: '杭州', value: 90}],
+        [{name: '杭州'}, {name: '临安', value: 80}],
+        [{name: '临安'}, {name: '杭州', value: 70}],
+        [{name: '杭州'}, {name: '临安', value: 60}],
+        [{name: '临安'}, {name: '杭州', value: 90}],
+        [{name: '杭州'}, {name: '临安', value: 80}],
+        [{name: '临安'}, {name: '余杭', value: 70}],
+        [{name: '余杭'}, {name: '富阳', value: 60}],
+        [{name: '富阳'}, {name: '杭州', value: 90}]
+    ];
+    var TwelfthData = [
+        [{name: '富阳'}, {name: '杭州', value: 95}],
+        [{name: '杭州'}, {name: '余杭', value: 90}],
+        [{name: '余杭'}, {name: '嘉兴', value: 80}],
+        [{name: '嘉兴'}, {name: '苏州', value: 70}],
+        [{name: '苏州'}, {name: '无锡', value: 60}],
+        [{name: '无锡'}, {name: '常州', value: 90}],
+        [{name: '常州'}, {name: '丹阳', value: 80}],
+        [{name: '丹阳'}, {name: '镇江', value: 70}],
+        [{name: '镇江'}, {name: '丹阳', value: 60}],
+        [{name: '丹阳'}, {name: '常州', value: 90}],
+        [{name: '常州'}, {name: '宜兴', value: 80}],
+        [{name: '宜兴'}, {name: '无锡', value: 70}],
+        [{name: '无锡'}, {name: '苏州', value: 60}],
+        [{name: '苏州'}, {name: '吴江', value: 90}],
+        [{name: '吴江'}, {name: '嘉兴', value: 80}],
+        [{name: '嘉兴'}, {name: '杭州', value: 70}],
+        [{name: '杭州'}, {name: '余杭', value: 60}],
+        [{name: '余杭'}, {name: '杭州', value: 90}],
+        [{name: '杭州'}, {name: '富阳', value: 80}],
+        [{name: '富阳'}, {name: '临安', value: 70}],
+        [{name: '临安'}, {name: '杭州', value: 60}],
+        [{name: '杭州'}, {name: '富阳', value: 90}],
+        [{name: '富阳'}, {name: '临安', value: 80}],
+        [{name: '临安'}, {name: '杭州', value: 70}]
+    ];
+    var ThirteenthData = [
+        [{name: '海宁'}, {name: '杭州', value: 90}],
+        [{name: '杭州'}, {name: '湖州', value: 90}],
+        [{name: '湖州'}, {name: '吴江', value: 80}],
+        [{name: '吴江'}, {name: '苏州', value: 70}],
+        [{name: '苏州'}, {name: '常州', value: 60}],
+        [{name: '常州'}, {name: '镇江', value: 90}],
+        [{name: '镇江'}, {name: '扬州', value: 80}],
+        [{name: '扬州'}, {name: '高邮', value: 70}],
+        [{name: '高邮'}, {name: '淮安', value: 60}],
+        [{name: '淮安'}, {name: '连云港', value: 90}],
+        [{name: '连云港'}, {name: '诸城', value: 80}],
+        [{name: '诸城'}, {name: '安丘', value: 70}],
+        [{name: '安丘'}, {name: '潍坊', value: 60}],
+        [{name: '潍坊'}, {name: '益都', value: 90}],
+        [{name: '益都'}, {name: '济南', value: 80}],
+        [{name: '济南'}, {name: '东平', value: 70}],
+        [{name: '东平'}, {name: '汶上', value: 60}],
+        [{name: '汶上'}, {name: '鄄城', value: 90}],
+        [{name: '鄄城'}, {name: '濮阳', value: 80}],
+        [{name: '濮阳'}, {name: '开封', value: 70}],
+        [{name: '开封'}, {name: '商丘', value: 60}],
+        [{name: '商丘'}, {name: '宿州', value: 90}],
+        [{name: '宿州'}, {name: '徐州', value: 80}],
+        [{name: '海宁'}, {name: '海宁', value: 30}]     //special line
+    ];
+    var FourteenthData = [
+        [{name: '萧县'}, {name: '徐州', value: 95}],
+        [{name: '徐州'}, {name: '萧县', value: 90}],
+        [{name: '萧县'}, {name: '徐州', value: 80}],
+        [{name: '徐州'}, {name: '商丘', value: 70}],
+        [{name: '商丘'}, {name: '宿州', value: 60}],
+        [{name: '宿州'}, {name: '灵璧', value: 95}],
+        [{name: '灵璧'}, {name: '盱眙', value: 90}],
+        [{name: '盱眙'}, {name: '高邮', value: 80}],
+        [{name: '高邮'}, {name: '扬州', value: 70}],
+        [{name: '扬州'}, {name: '镇江', value: 60}],
+        [{name: '镇江'}, {name: '无锡', value: 95}],
+        [{name: '无锡'}, {name: '苏州', value: 90}],
+        [{name: '苏州'}, {name: '吴江', value: 80}]
+    ];
+    var FifteenthData = [
+        [{name: '湖州'}, {name: '吴江', value: 95}],
+        [{name: '吴江'}, {name: '镇江', value: 90}],
+        [{name: '镇江'}, {name: '扬州', value: 80}],
+        [{name: '扬州'}, {name: '宿州', value: 70}],
+        [{name: '宿州'}, {name: '开封', value: 60}],
+        [{name: '开封'}, {name: '淮阳', value: 95}],
+        [{name: '淮阳'}, {name: '汝南', value: 90}],
+        [{name: '汝南'}, {name: '息县', value: 80}],
+        [{name: '息县'}, {name: '光山', value: 70}],
+        [{name: '光山'}, {name: '麻城', value: 60}],
+        [{name: '湖州'}, {name: '湖州', value: 30}]     //special line
+    ];
+    var SixteenthData = [
+        [{name: '黄冈'}, {name: '麻城', value: 95}],
+        [{name: '麻城'}, {name: '黄冈', value: 90}],
+        [{name: '黄冈'}, {name: '鄂城', value: 80}],
+        [{name: '鄂城'}, {name: '黄冈', value: 70}],
+        [{name: '黄冈'}, {name: '鄂城', value: 60}],
+        [{name: '鄂城'}, {name: '黄冈', value: 60}]
+    ];
+    var SeventeenthData = [
+        [{name: '麻城'}, {name: '黄冈', value: 95}],
+        [{name: '黄冈'}, {name: '鄂城', value: 90}],
+        [{name: '鄂城'}, {name: '黄冈', value: 80}],
+        [{name: '黄冈'}, {name: '麻城', value: 70}],
+        [{name: '麻城'}, {name: '黄冈', value: 60}],
+        [{name: '黄冈'}, {name: '鄂城', value: 60}],
+        [{name: '鄂城'}, {name: '黄冈', value: 60}],
+        [{name: '黄冈'}, {name: '浠水', value: 60}]
+    ];
+    var EighteenthData = [
+        [{name: '黄冈'}, {name: '浠水', value: 35}],
+        [{name: '浠水'}, {name: '黄冈', value: 30}],
+        [{name: '黄冈'}, {name: '鄂城', value: 30}],
+        [{name: '鄂城'}, {name: '黄冈', value: 30}],
+        [{name: '黄冈'}, {name: '麻城', value: 30}],
+        [{name: '麻城'}, {name: '黄冈', value: 30}],
+        [{name: '黄冈'}, {name: '鄂城', value: 30}],
+        [{name: '鄂城'}, {name: '黄冈', value: 30}]
+    ];
+    var NineteenthData = [
+        [{name: '鄂城'}, {name: '黄冈', value: 45}],
+        [{name: '黄冈'}, {name: '鄂城', value: 40}],
+        [{name: '鄂城'}, {name: '黄冈', value: 40}],
+        [{name: '黄冈'}, {name: '黄陂', value: 40}],
+        [{name: '黄陂'}, {name: '黄冈', value: 40}]
+    ];
+    var TwentiethData = [
+        [{name: '汉阳'}, {name: '黄冈', value: 95}],
+        [{name: '黄冈'}, {name: '鄂城', value: 90}],
+        [{name: '鄂城'}, {name: '阳新', value: 80}],
+        [{name: '阳新'}, {name: '大冶', value: 70}],
+        [{name: '大冶'}, {name: '瑞昌', value: 60}],
+        [{name: '瑞昌'}, {name: '九江', value: 45}],
+        [{name: '九江'}, {name: '永修', value: 40}],
+        [{name: '永修'}, {name: '奉新', value: 40}],
+        [{name: '奉新'}, {name: '高安', value: 40}],
+        [{name: '高安'}, {name: '遂川', value: 40}],
+        [{name: '遂川'}, {name: '宜丰', value: 95}],
+        [{name: '宜丰'}, {name: '高安', value: 30}],
+        [{name: '高安'}, {name: '奉新', value: 30}],
+        [{name: '奉新'}, {name: '星子', value: 30}],
+        [{name: '星子'}, {name: '九江', value: 70}],
+        [{name: '九江'}, {name: '德安', value: 30}],
+        [{name: '德安'}, {name: '九江', value: 30}],
+        [{name: '九江'}, {name: '湖口', value: 90}],
+        [{name: '湖口'}, {name: '彭泽', value: 35}],
+        [{name: '彭泽'}, {name: '贵池', value: 90}],
+        [{name: '贵池'}, {name: '芜湖', value: 30}],
+        [{name: '芜湖'}, {name: '当涂', value: 30}],
+        [{name: '当涂'}, {name: '南京', value: 60}],
+        [{name: '南京'}, {name: '六合', value: 30}],
+        [{name: '六合'}, {name: '仪征', value: 30}],
+        [{name: '仪征'}, {name: '镇江', value: 30}],
+        [{name: '镇江'}, {name: '仪征', value: 35}],
+        [{name: '仪征'}, {name: '镇江', value: 30}],
+        [{name: '镇江'}, {name: '丹阳', value: 90}],
+        [{name: '丹阳'}, {name: '常州', value: 30}],
+        [{name: '常州'}, {name: '宜兴', value: 50}],
+        [{name: '宜兴'}, {name: '常州', value: 30}],
+        [{name: '常州'}, {name: '扬州', value: 30}],
+        [{name: '扬州'}, {name: '高邮', value: 80}],
+        [{name: '高邮'}, {name: '淮安', value: 35}],
+        [{name: '淮安'}, {name: '盱眙', value: 30}],
+        [{name: '盱眙'}, {name: '灵璧', value: 30}],
+        [{name: '灵璧'}, {name: '宿州', value: 30}],
+        [{name: '汉阳'}, {name: '汉阳', value: 30}]     //special line
+    ];
+    var Twenty_firstData = [
+        [{name: '商丘'}, {name: '宿州', value: 95}],
+        [{name: '宿州'}, {name: '灵璧', value: 90}],
+        [{name: '灵璧'}, {name: '盱眙', value: 80}],
+        [{name: '盱眙'}, {name: '扬州', value: 90}],
+        [{name: '扬州'}, {name: '仪征', value: 60}],
+        [{name: '仪征'}, {name: '扬州', value: 95}],
+        [{name: '扬州'}, {name: '常州', value: 30}],
+        [{name: '常州'}, {name: '镇江', value: 80}],
+        [{name: '镇江'}, {name: '仪征', value: 60}],
+        [{name: '仪征'}, {name: '镇江', value: 80}],
+        [{name: '镇江'}, {name: '仪征', value: 60}],
+        [{name: '仪征'}, {name: '常州', value: 30}],
+        [{name: '常州'}, {name: '镇江', value: 80}],
+        [{name: '镇江'}, {name: '扬州', value: 95}],
+        [{name: '扬州'}, {name: '泰州', value: 30}],
+        [{name: '泰州'}, {name: '扬州', value: 90}],
+        [{name: '扬州'}, {name: '淮安', value: 30}],
+        [{name: '淮安'}, {name: '涟水', value: 30}],
+        [{name: '涟水'}, {name: '连云港', value: 30}],
+        [{name: '连云港'}, {name: '赣榆', value: 30}],
+        [{name: '赣榆'}, {name: '诸城', value: 30}],
+        [{name: '诸城'}, {name: '密州', value: 75}],
+        [{name: '密州'}, {name: '胶州', value: 30}],
+        [{name: '胶州'}, {name: '蓬莱', value: 70}],
+        [{name: '蓬莱'}, {name: '莱州', value: 30}],
+        [{name: '莱州'}, {name: '益都', value: 60}],
+        [{name: '益都'}, {name: '章丘', value: 30}],
+        [{name: '章丘'}, {name: '长清', value: 50}],
+        [{name: '长清'}, {name: '东平', value: 30}],
+        [{name: '东平'}, {name: '商丘', value: 55}],
+        [{name: '商丘'}, {name: '开封', value: 30}],
+        [{name: '开封'}, {name: '淮阳', value: 30}],
+        [{name: '淮阳'}, {name: '商丘', value: 55}],
+        [{name: '商丘'}, {name: '宿州', value: 90}],
+        [{name: '宿州'}, {name: '盱眙', value: 80}],
+        [{name: '盱眙'}, {name: '淮安', value: 30}],
+        [{name: '淮安'}, {name: '高邮', value: 30}],
+        [{name: '高邮'}, {name: '扬州', value: 95}],
+        [{name: '扬州'}, {name: '镇江', value: 80}],
+        [{name: '镇江'}, {name: '常州', value: 30}],
+        [{name: '常州'}, {name: '无锡', value: 30}],
+        [{name: '无锡'}, {name: '苏州', value: 30}]
+    ];
+    var Twenty_secondData = [
+        [{name: '嘉兴'}, {name: '杭州', value: 90}],
+        [{name: '杭州'}, {name: '德清', value: 80}],
+        [{name: '德清'}, {name: '湖州', value: 70}],
+        [{name: '湖州'}, {name: '吴江', value: 60}],
+        [{name: '吴江'}, {name: '苏州', value: 90}],
+        [{name: '苏州'}, {name: '常州', value: 80}],
+        [{name: '常州'}, {name: '镇江', value: 70}],
+        [{name: '镇江'}, {name: '扬州', value: 60}],
+        [{name: '嘉兴'}, {name: '嘉兴', value: 60}]     //special line
+    ];
+    var Twenty_thirdData = [
+        [{name: '商丘'}, {name: '开封', value: 95}],
+        [{name: '开封'}, {name: '淮阳', value: 90}],
+        [{name: '淮阳'}, {name: '界首', value: 80}],
+        [{name: '界首'}, {name: '阜阳', value: 70}],
+        [{name: '阜阳'}, {name: '凤台', value: 60}],
+        [{name: '凤台'}, {name: '凤阳', value: 90}],
+        [{name: '凤阳'}, {name: '盱眙', value: 80}],
+        [{name: '商丘'}, {name: '商丘', value: 30}]     //special line
+    ];
+    var Twenty_fourthData = [
+        [{name: '淮安'}, {name: '扬州', value: 95}],
+        [{name: '扬州'}, {name: '宜兴', value: 90}],
+        [{name: '宜兴'}, {name: '盱眙', value: 80}],
+        [{name: '盱眙'}, {name: '宿州', value: 70}],
+        [{name: '宿州'}, {name: '商丘', value: 60}],
+        [{name: '商丘'}, {name: '开封', value: 90}],
+        [{name: '淮安'}, {name: '淮安', value: 30}]     //special line
+    ];
+    var Twenty_fifthData = [
+        [{name: '郑州'}, {name: '开封', value: 95}],
+        [{name: '开封'}, {name: '杞县', value: 90}],
+        [{name: '杞县'}, {name: '开封', value: 80}],
+        [{name: '开封'}, {name: '封丘', value: 70}],
+        [{name: '封丘'}, {name: '辉县', value: 60}],
+        [{name: '辉县'}, {name: '安阳', value: 90}],
+        [{name: '安阳'}, {name: '正定', value: 80}],
+        [{name: '正定'}, {name: '定州', value: 70}],
+        [{name: '定州'}, {name: '正定', value: 60}],
+        [{name: '正定'}, {name: '临城', value: 90}],
+        [{name: '临城'}, {name: '内丘', value: 80}],
+        [{name: '内丘'}, {name: '邢台', value: 70}],
+        [{name: '邢台'}, {name: '汤阴', value: 60}],
+        [{name: '汤阴'}, {name: '滑县', value: 90}],
+        [{name: '滑县'}, {name: '开封', value: 80}]
+    ];
+    var Twenty_sixthData = [
+        [{name: '睢县'}, {name: '临汝', value: 95}],
+        [{name: '临汝'}, {name: '开封', value: 90}],
+        [{name: '开封'}, {name: '杞县', value: 80}],
+        [{name: '杞县'}, {name: '宁陵', value: 70}],
+        [{name: '宁陵'}, {name: '商丘', value: 60}],
+        [{name: '商丘'}, {name: '宿州', value: 95}],
+        [{name: '宿州'}, {name: '盱眙', value: 90}],
+        [{name: '盱眙'}, {name: '淮安', value: 80}],
+        [{name: '淮安'}, {name: '高邮', value: 70}],
+        [{name: '高邮'}, {name: '扬州', value: 60}],
+        [{name: '扬州'}, {name: '镇江', value: 90}],
+        [{name: '镇江'}, {name: '仪征', value: 80}],
+        [{name: '仪征'}, {name: '六合', value: 70}],
+        [{name: '六合'}, {name: '南京', value: 60}],
+        [{name: '南京'}, {name: '当涂', value: 90}],
+        [{name: '当涂'}, {name: '彭泽', value: 80}],
+        [{name: '彭泽'}, {name: '湖口', value: 70}],
+        [{name: '湖口'}, {name: '九江', value: 60}],
+        [{name: '九江'}, {name: '都昌', value: 90}],
+        [{name: '都昌'}, {name: '南昌', value: 80}],
+        [{name: '南昌'}, {name: '丰城', value: 90}],
+        [{name: '丰城'}, {name: '清江', value: 80}],
+        [{name: '清江'}, {name: '吉安', value: 70}],
+        [{name: '吉安'}, {name: '万安', value: 60}],
+        [{name: '万安'}, {name: '赣州', value: 90}],
+        [{name: '赣州'}, {name: '上犹', value: 80}],
+        [{name: '上犹'}, {name: '大余', value: 70}],
+        [{name: '大余'}, {name: '南雄', value: 60}],
+        [{name: '南雄'}, {name: '始兴', value: 90}],
+        [{name: '始兴'}, {name: '韶关', value: 80}],
+        [{name: '韶关'}, {name: '英德', value: 70}],
+        [{name: '英德'}, {name: '清远', value: 60}],
+        [{name: '清远'}, {name: '广州', value: 90}],
+        [{name: '广州'}, {name: '博罗', value: 80}],
+        [{name: '博罗'}, {name: '惠州', value: 95}],
+        [{name: '惠州'}, {name: '博罗', value: 90}],
+        [{name: '博罗'}, {name: '惠州', value: 80}],
+        [{name: '惠州'}, {name: '博罗', value: 70}],
+        [{name: '博罗'}, {name: '惠州', value: 60}],
+        [{name: '惠州'}, {name: '广州', value: 90}],
+        [{name: '广州'}, {name: '新会', value: 80}],
+        [{name: '新会'}, {name: '梧州', value: 70}],
+        [{name: '梧州'}, {name: '藤县', value: 60}],
+        [{name: '藤县'}, {name: '容县', value: 90}],
+        [{name: '容县'}, {name: '高州', value: 80}],
+        [{name: '高州'}, {name: '雷州', value: 70}],
+        [{name: '雷州'}, {name: '徐闻', value: 60}],
+        [{name: '徐闻'}, {name: '琼山', value: 90}],
+        [{name: '睢县'}, {name: '睢县', value: 30}]     //special line
+    ];
+    var Twenty_seventhData = [
+        [{name: '临高'}, {name: '儋州', value: 95}],
+        [{name: '儋州'}, {name: '琼山', value: 90}],
+        [{name: '琼山'}, {name: '儋州', value: 80}],
+        [{name: '临高'}, {name: '临高', value: 30}]     //special line
+    ];
+    var Twenty_eighthData = [
+        [{name: '陵水'}, {name: '儋州', value: 95}],
+        [{name: '儋州'}, {name: '澄迈', value: 90}],
+        [{name: '澄迈'}, {name: '琼山', value: 80}],
+        [{name: '琼山'}, {name: '徐闻', value: 70}],
+        [{name: '徐闻'}, {name: '雷州', value: 60}],
+        [{name: '雷州'}, {name: '遂溪', value: 95}],
+        [{name: '遂溪'}, {name: '廉江', value: 90}],
+        [{name: '廉江'}, {name: '合浦', value: 80}],
+        [{name: '合浦'}, {name: '博白', value: 70}],
+        [{name: '博白'}, {name: '玉林', value: 60}],
+        [{name: '玉林'}, {name: '容县', value: 95}],
+        [{name: '容县'}, {name: '藤县', value: 90}],
+        [{name: '藤县'}, {name: '梧州', value: 80}],
+        [{name: '梧州'}, {name: '德庆', value: 70}],
+        [{name: '德庆'}, {name: '广州', value: 60}],
+        [{name: '广州'}, {name: '清远', value: 90}],
+        [{name: '清远'}, {name: '英德', value: 80}],
+        [{name: '英德'}, {name: '韶关', value: 70}],
+        [{name: '韶关'}, {name: '南雄', value: 60}],
+        [{name: '南雄'}, {name: '大余', value: 90}],
+        [{name: '大余'}, {name: '南康', value: 80}],
+        [{name: '南康'}, {name: '赣州', value: 70}],
+        [{name: '赣州'}, {name: '瑞金', value: 60}],
+        [{name: '瑞金'}, {name: '赣州', value: 90}],
+        [{name: '赣州'}, {name: '吉安', value: 80}],
+        [{name: '吉安'}, {name: '新干', value: 95}],
+        [{name: '新干'}, {name: '南昌', value: 90}],
+        [{name: '南昌'}, {name: '星子', value: 70}],
+        [{name: '星子'}, {name: '九江', value: 60}],
+        [{name: '九江'}, {name: '湖口', value: 90}],
+        [{name: '湖口'}, {name: '铜陵', value: 80}],
+        [{name: '铜陵'}, {name: '芜湖', value: 70}],
+        [{name: '芜湖'}, {name: '当涂', value: 60}],
+        [{name: '当涂'}, {name: '南京', value: 90}],
+        [{name: '南京'}, {name: '仪征', value: 80}],
+        [{name: '仪征'}, {name: '镇江', value: 70}],
+        [{name: '镇江'}, {name: '仪征', value: 60}],
+        [{name: '仪征'}, {name: '镇江', value: 90}],
+        [{name: '镇江'}, {name: '常州', value: 80}],
+        [{name: '陵水'}, {name: '陵水', value: 30}]     //special line
+    ];
+
+
+    var planePath = 'path://M480 480m-416 0a6.5 6.5 0 1 0 832 0 6.5 6.5 0 1 0-832 0Z';
+    var convertData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var dataItem = data[i];
+            var fromCoord = geoCoordMap[dataItem[0].name];
+            var toCoord = geoCoordMap[dataItem[1].name];
+            if (fromCoord && toCoord) {
+                res.push({
+                    fromName: dataItem[0].name,
+                    toName: dataItem[1].name,
+                    coords: [fromCoord, toCoord]
+                });
+            }
+        }
+        return res;
+    };
+
+    var color = ['#a6c84c', '#ffa022', '#46bee9', '#444444', '#b93636'];
+    var series = [];
+    [['苏轼生平',ZeroData],['1--21岁', FirstData], ['21--22岁', SecondData], ['22--24岁', ThirdData], ['24--27岁', FourthData], ['27--28岁', FifthData], ['28--29岁', SixthData],
+        ['29--32岁', SeventhData], ['32--33岁', EighthData], ['33--36岁', NinthData], ['36--37岁', TenthData], ['37--38岁', EleventhData], ['38--39岁', TwelfthData],
+        ['39--43岁', ThirteenthData], ['43--44岁', FourteenthData], ['44--45岁', FifteenthData], ['45--46岁', SixteenthData], ['46--47岁', SeventeenthData], ['47--48岁', EighteenthData],
+        ['48--49岁', NineteenthData], ['49--50岁', TwentiethData], ['50--54岁', Twenty_firstData], ['54--56岁', Twenty_secondData], ['56--57岁', Twenty_thirdData], ['57--58岁', Twenty_fourthData],
+        ['58--59岁', Twenty_fifthData], ['59--62岁', Twenty_sixthData], ['62--65岁', Twenty_seventhData], ['65--66岁', Twenty_eighthData]].forEach(function (item, i) {
+        series.push({
+                name: item[0],
+                type: 'lines',
+                coordinateSystem: 'bmap',
+                zlevel: 1,
+                effect: {
+                    show: true,
+                    period: 3,
+                    trailLength: 0.7,
+                    color: '#fff',
+                    symbolSize: 5,
+                },
+                lineStyle: {
+                    normal: {
+                        color: color[i],
+                        width: 1,
+                        curveness: 0.2
+                    }
+                },
+                data: convertData(item[1])
+            },
+            {
+                name: item[0],
+                type: 'lines',
+                coordinateSystem: 'bmap',
+                zlevel: 2,
+                effect: {
+                    show: true,
+                    period: 6,
+                    trailLength: 0,
+                    symbol: planePath,
+                    symbolSize: 1
+                },
+                lineStyle: {
+                    normal: {
+                        color: color[i],
+                        width: 1,
+                        opacity: 0.4,
+                        curveness: 0.2
+                    }
+                },
+                data: convertData(item[1])
+            },
+            {
+                name: item[0],
+                type: 'effectScatter',
+                coordinateSystem: 'bmap',
+                zlevel: 2,
+                rippleEffect: {
+                    brushType: 'stroke',
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'bottom',
+                        formatter: '{b}'
+                    }
+                },
+                symbolSize: function (val) {
+                    return val[2] / 8;
+                },
+                itemStyle: {
+                    normal: {
+                        color: color[i]
+                    }
+                },
+                data: item[1].map(function (dataItem) {
+                    return {
+                        name: dataItem[1].name,
+                        //value:"XXXXXXXxx"
+                        value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
+                    };
+                })
+            });
+    });
+
+    const option = {
+        // backgroundColor: '#404a59',
+        title: {
+            text: '苏东坡编年地图',
+            subtext: '----',
+            left: 'center',
+            textStyle: {
+                color: '#404a59'
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            //
+            enterable: true,
+            // formatter:function(params,ticket,callback){
+            //     undefined
+            //     //根据业务自己拓展要显示的内容
+            //     var res = "";
+            //     var name = params.name;
+            //     var value = params.value[params.seriesIndex + 1];
+            //     res = "<span style='color:#fff;'>" + name + "</span><br/>数据：" + value;
+            //     return res;
+            // }
+            //
+        },
+        legend: {
+            orient: 'vertical',
+            top: 'bottom',
+            left: 'right',
+            data: ['苏轼生平','1--21岁', '21--22岁', '22--24岁', '24--27岁', '27--28岁', '28--29岁', '29--32岁', '32--33岁', '33--36岁', '36--37岁', '37--38岁', '38--39岁', '39--43岁', '43--44岁', '44--45岁', '45--46岁', '46--47岁', '47--48岁', '48--49岁', '49--50岁', '50--54岁', '54--56岁', '56--57岁', '57--58岁', '58--59岁', '59--62岁', '62--65岁', '65--66岁'],
+            textStyle: {
+                color: 'rgb(185,54,54)'
+            },
+            selectedMode: 'single'
+        },
+        dataRange: {
+            min: 0,
+            max: 100,
+            x: 'right',
+            calculable: false,
+            // color: ['#ff3333', 'orange', 'yellow', 'lime', 'aqua'],
+            color: ['#d5554e', 'rgba(255,162,67,0.82)', 'rgba(255,253,37,0.77)', 'rgba(59,251,41,0.47)', 'rgba(57,158,251,0.42)'],
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        bmap: {
+            mapStyle: {
+                styleJson: style_map
+            },
+            center: [106, 35],
+            zoom: 6,
+            roam: true
+        },
+        series: series
+    };
+    myChart.setOption(option);
+
+    myChart.on('click', function (clickparams) {
+        console.log(clickparams);
+        console.log("COPYRIGHT ©2022  邱枫阳  All rights reserved. ");
+        var city = clickparams.name;
+        var line_time = clickparams.seriesName;
+        var line_fromCity = clickparams.data.fromName;
+        var line_toCity = clickparams.data.toName;
+        if (city!='') {
+            $.get(
+                "http://localhost:8080/showcity",
+                {
+                    city:city,
+                    time:line_time
+                },
+                function (result) {
+                    //渲染左边栏数据
+                    var div0 = document.getElementById("main_left_bottom");
+                    div0.innerHTML = `
+                    <div id="main_left_bottom_first">
+                        <br>
+                        <h3 class="text-secondary">苏东坡</h3>
+                        有<h1 class="text-red font-weight-bold text-mybig">${result.list_road.length}</h1>段
+                        <h5 class="text-secondary">在此地的经历</h5>
+                    </div>
+                    <div id="main_left_bottom_second">
+                        <hr>
+                        <div>
+                            <div>分别是：`;
+
+                    var road_info = '';
+
+                    result.list_road.forEach(r => {
+                        var r_index = result.list_road.indexOf(r);
+                        road_info += `
+                        <span class="text-myhover my_margin2"  data-toggle="collapse" href="#collapse` + r_index + `" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        ${r.date}</span>、
+                        <div class="collapse my_margin" id="collapse` + r_index + `"><span class="text-success">${r.time}：</span><span>${r.route}</span></div>
+                    `;
+                    });
+                    road_info += `</div>
+                        </div>
+                    </div>`;
+                    div0.innerHTML += road_info;
+
+
+                    //渲染右边栏数据
+                    var div = document.getElementById("main_right");
+                    div.innerHTML = `<div id="right_city"><h3><span class="badge badge-danger-my">${result.city_info[0].city}</span></h3></div>`;
+
+                    var city_info = '';
+                    result.city_info.forEach(f => {
+                        var index1 = result.city_info.indexOf(f);
+                        city_info += `<br>
+                                    <div id="right_info" data-toggle="collapse" href="#collapseExample` + index1 + `" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="text-primary">${f.time}</span>，<span class="text-success">${f.age}</span></div>
+                                    <hr>`;
+
+                        var city_content = '';
+                        result.city_content[index1].forEach(i => {
+                            city_content +=
+                                ` <div class="right_content collapse" id="collapseExample` + index1 + `">
+                            <div><span>${i.date}&nbsp;&nbsp;${i.content}</span>`;
+                            if (i.tip != null) {
+                                city_content += `<span class="text-black-50">${i.tip}</span>`
+                            }
+                            ;
+                            city_content += `</div>`;
+                            if (i.poem_name != null) {
+                                city_content += `<div class="align-my">
+                                    <div class="bg-green text-align-my"><strong class="text-yellow">${i.poem_name}</strong></div>
+                                    <div class="text-align-my">${i.poem_content}</div>`;
+
+                                var index = result.city_content[index1].indexOf(i)
+                                var poem_note = '';
+
+                                result.poem_note[index1][index].forEach(e => {
+
+                                    if (e.note_name != null && result.poem_note[index1][index].indexOf(e) == 0) {
+                                        city_content += `
+                                <div class="alert alert-green alert-dismissible fade show" role="alert">
+                                    <strong>注释</strong><br>`
+                                    }
+                                    ;
+                                    poem_note += `
+                                <span class="text-red">《漢語大詞典》：</span>${e.note_name}&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-red">拼音：</span>${e.note_pinyin}<br>${e.note_content}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <br>
+                                <br>`;
+                                });
+                                city_content += poem_note;
+                                city_content += `
+                                </div>
+                                <hr></div>`;
+                            } else {
+                                city_content += `<hr>`;
+                            }
+                            ;
+                            city_content += `</div>
+                                `
+                            // }
+                        });
+                        city_info += city_content;
+                    });
+                    div.innerHTML += city_info;
+                }
+            );
+        }
+        else {
+            $.get(
+                "http://localhost:8080/showroute",
+                {
+                    time:line_time,
+                    startCity:line_fromCity,
+                    endCity:line_toCity
+                },
+                function(result) {
+                    //渲染左边栏
+                    var div0 = document.getElementById("main_left_bottom");
+                    div0.innerHTML = `
+                        <div id="main_left_bottom_first">
+                            <br>
+                            <h5 class="text-secondary">本系统共记载苏东坡二十八段经历</h5>
+                        </div>
+                        <div id="main_left_bottom_second">
+                            <hr>
+                            <div id="left_load_html">
+
+                            </div>
+                        </div>
+                    `;
+                    $("#left_load_html").load("./main_left_bottom.html");
+
+
+                    //渲染右边栏
+                    var route_info = document.getElementById("main_right")
+                    route_info.innerHTML = `
+                <div id="right_city"><h3><span class="badge badge-danger-my">苏轼（苏东坡）</span></h3></div>
+                <div id="right_info"><span class="text-primary">1036年12月19日--1101年7月28日【农历】</span></div>
+                <hr class="bg-green">`;
+                    result.forEach(ii => {
+                    route_info.innerHTML+=`
+                    <div class="my_margin">
+                        <h4><span class="text-primary">${ii.route_date}</span>，<span class="text-success">${ii.route_time}</span></h4>
+                        `;
+                        var route_flag_info = '<h5 class="my_margin">';
+                        var splitList = ii.route.split(ii.route_flag);
+
+                        for(var i= 0;i<splitList.length;i++){
+                            route_flag_info+=splitList[i];
+                            if (i<splitList.length-1){     //如果不是最后一段，则要加result.route_flag
+                                route_flag_info+=`<span class="text-orange">${ii.route_flag}</span>`;
+                            }
+                        }
+
+                        route_flag_info+=`
+                        </h5>
+                    </div>
+                    <br/>
+                `;
+                    route_info.innerHTML+=route_flag_info;
+                }
+            );
+        });}
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.graduate.demo1.dao.City_contentDao">
+
+    <select id="findCity_contentsByCity" parameterType="String" resultType="com.graduate.demo1.model.City_content">
+        select * from city_content where city = #{city} order by date;
+    </select>
+
+    <select id="getCity_contentsByOrder"  resultType="com.graduate.demo1.model.City_content">
+        select * from city_content where order_num = #{order} and city = #{city};
+    </select>
+</mapper>
