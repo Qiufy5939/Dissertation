@@ -15,11 +15,12 @@
         })
     </script>
     <link rel="icon" href="../static/img/favicon1.ico" type ="image/x-icon">
+    <title>苏东坡编年地图可视化系统</title>
 </head>
 <body>
 <div id="main_content">
     <div id="main_left">
-        <div id="main_left_top"><img src="../static/img/sushi2.png" width="150px"></div>
+        <div id="main_left_top"><img src="../static/img/sushi2.png" width="100%"></div>
         <div id="main_left_bottom">
             <div id="main_left_bottom_first">
                 <br>
@@ -33,7 +34,7 @@
             </div>
         </div>
     </div>
-    <div id="main_mid_top"><img src="../static/img/title.PNG" width="900px"></div>
+    <div id="main_mid_top"><img src="../static/img/title.PNG" width="95%" height="15%"></div>
     <div id="main_mid"></div>
     <div id="main_right">
         <div id="right_city"><h3><span class="badge badge-danger-my">苏轼（苏东坡）</span></h3></div>
@@ -187,7 +188,7 @@
                 data: item[1].map(function (dataItem) {
                     return {
                         name: dataItem[1].name,
-                        //value:"XXXXXXXxx"
+                        // value:dataItem[1].value
                         value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
                     };
                 })
@@ -223,6 +224,7 @@
             orient: 'vertical',
             top: 'bottom',
             left: 'right',
+            width:10,
             data: ['苏轼生平','1--21岁', '21--22岁', '22--24岁', '24--27岁', '27--28岁', '28--29岁', '29--32岁', '32--33岁', '33--36岁', '36--37岁', '37--38岁', '38--39岁', '39--43岁', '43--44岁', '44--45岁', '45--46岁', '46--47岁', '47--48岁', '48--49岁', '49--50岁', '50--54岁', '54--56岁', '56--57岁', '57--58岁', '58--59岁', '59--62岁', '62--65岁', '65--66岁'],
             textStyle: {
                 color: 'rgb(185,54,54)',
@@ -245,7 +247,7 @@
             mapStyle: {
                 styleJson: style_map
             },
-            center: [106, 35],
+            center: [111, 35],
             zoom: 6,
             roam: true
         },
