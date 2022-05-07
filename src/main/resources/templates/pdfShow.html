@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--声明文档类型：html文本，让浏览器进行读取-->
+<html lang="en">
+<!--超文本标记语言-->
+<head>
+    <meta charset="utf-8">
+    <title>文献详情</title>
+    <link rel="icon" href="../static/img/favicon1.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../static/css/style_references.css">
+    <link rel="stylesheet" href="../static/css/style_pdfShow.css">
+</head>
+<body>
+<div class="text-center p-4 px-6 flex items-center" style="background-color: #ccd6d7">
+    <div class="hidden lg:block lg:w-1/4 xl:w-1/5 pr-8">
+        <a href="#" class="flex justify-start pl-6">
+            <img src="../static/img/favicon1.ico" width="20%" alt="logo">
+        </a>
+    </div>
+
+    <div class="flex flex-grow items-center lg:w-3/4 xl:w-4/5">
+		<span class="relative w-full text-5xl" style="color: white">
+				苏东坡编年地图可视化系统之文献资料库
+		</span>
+    </div>
+</div>
+<!-- Main -->
+<div class="flex">
+    <!-- Content -->
+    <div class="flex flex-1 flex-col md:px-6 pt-10" id="content">
+        <!-- Title -->
+        <div class="px-6 md:px-0 flex justify-between items-center -order-1">
+            <div>
+                <h2 class="font-normal">苏轼年谱（上），孔凡礼撰</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="pdfIframe">
+    <!--<iframe title="Inline Frame Example"
+        style="width: 100vh; height: 85vh;"
+        src="./compressed.tracemonkey-pldi-09.pdf">
+    </iframe>-->
+</div>
+</body>
+<script>
+    window.οnlοad = f();
+
+    function f() {
+        var afterUrl = window.location.search.split("=")[1];
+        // console.log("afterEqual",afterUrl);
+        document.getElementById("pdfIframe").innerHTML = `<iframe title="Inline Frame Example"
+            style="width: 150vh; height: 100vh;"
+            src=" ../static/pdf/` + afterUrl + `">
+        </iframe>`;
+    }
+</script>
+</html>

@@ -1,0 +1,49 @@
+
+
+.text-mybig{
+    font-size: 100px;
+    display: inline;
+}
+
+.text-mysmall{
+    font-size: 40px;
+    display: inline;
+}
+
+.text-mysmall2{
+    font-size: 30px;
+    display: inline;
+}
+
+.text-mysmall3{
+    font-size: 20px;
+    display: inline;
+}
+
+
+.text-orange{
+    color: #9F5026;
+}
+
+#panel-576402 li{
+    list-style:decimal;
+    color: #979e9f;
+
+}
+#panel-576402 li p:first-child{
+    display: inline;
+    color: #0056b3;
+}
+
+#mycontent1{
+    display:none;
+}
+#mycontent2{
+    display: none;
+}
+#mycontent3{
+    display: none;
+}
+
+
+

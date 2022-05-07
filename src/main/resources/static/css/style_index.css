@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    background: #f6f6f6;
+    min-width: 1515px;
+}
+/*针对火狐设置滚动条样式*/
+* {
+    scrollbar-color: #aaa #f7f7f9; /* 滑块颜色  滚动条背景颜色 未生效 */
+    scrollbar-width: thin; /* 滚动条宽度有三种：thin、auto、none */
+}
+/*针对其他浏览器设置滚动条样式*/
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: #f3f3f3;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #898989;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #4e4e4e;
+}
+/**/
+#main_mid {
+    height: 120%;
+    width: 65%;
+    margin-left: 10.9%;
+    /*margin-left: 160px;*/
+    /*top: 120px;*/
+    box-shadow:0px 15px 20px -15px rgb(0, 0, 0);
+}
+#main_mid_top{
+    width: 65%;
+    margin-left: 10.9%;
+    /*margin-left: 160px;*/
+    /*height: 120px;*/
+    /*height: 12.7%;*/
+    text-align: center;
+}
+
+#main_right{
+    background: #edf3f3;
+    height: 120%;
+    /*width: 345px;*/
+    width: 23.5%;
+    top: 0;
+    right: 0;
+    position: absolute;
+    box-shadow:0px 15px 20px -15px #000;
+    overflow-y: auto;
+    scrollbar-width: none; /*适用火狐浏览器*/
+    max-height: 100%;
+}
+#main_right::-webkit-scrollbar {
+    display: none;/*隐藏滚动条*/
+}
+#main_left{
+    position: absolute;
+    /*width: 150px;*/
+    width: 10.2%;
+    background-color: #ccd6d7;
+    height: 100%;
+    box-shadow:0px 15px 20px -15px #000;
+}
+#main_left_top{
+    box-shadow:0px 15px 20px -15px #000;
+    margin-bottom: 10px;
+}
+#main_left_bottom{
+    /*margin-top: 10px;*/
+    /*background: #ccd6d7;*/
+    /*box-shadow:0px 15px 20px -15px #000;*/
+    max-height: 76%;
+    overflow-y: auto;
+    scrollbar-width: none;   /*适用火狐浏览器*/
+}
+#main_left_bottom::-webkit-scrollbar {
+    display: none;/*隐藏滚动条*/
+}
+
+#main_left_bottom_first{
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#main_left_bottom_second{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.my_margin{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.my_margin2{
+    margin-left: 10px;
+}
+
+#main_content{
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top:20px;
+}
+
+
+/*class="box11 shadow"*/
+.box11 {
+    width: 300px;
+    height: 100px;
+    background: #ccc;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.shadow {
+    position: relative;
+    max-width: 270px;
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.3),
+    0px 0px 20px rgba(0,0,0,0.1) inset;
+}
+
+.shadow::before,
+.shadow::after {
+    content:"";
+    position:absolute;
+    z-index:-1;
+}
+
+.shadow::before,
+.shadow::after {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    bottom:15px;
+    left:10px;
+    width:50%;
+    height:20%;
+}
+
+.shadow::before,
+.shadow::after {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    bottom:15px;
+    left:10px;
+    width:50%;
+    height:20%;
+    box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+    transform:rotate(-3deg);
+}
+
+.shadow::after{
+    right:10px;
+    left:auto;
+    transform:rotate(3deg);
+}
+
+
+/*去除百度地图logo*/
+.anchorBL{
+    display:none
+}
+
+#right_city{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+#right_info{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.right_content{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.bg-green{
+    background: #ccd6d7;
+}
+.align-my{
+    margin-left: -10px;
+    margin-right: -10px;
+    /*text-align: center;*/
+}
+.text-align-my{
+    text-align: center;
+}
+.badge-danger-my {
+    color: #fff;
+    background-color: #b96666;
+}
+.alert-green {
+    color: #155724;
+    background-color: #ccd6d7;
+    border-color: #c3e6cb;
+}
+
+.alert-green hr {
+    border-top-color: #b1dfbb;
+}
+
+.text-red{
+    color: #b96666;
+}
+.text-yellow{
+    color: #9c8f7b;
+}
+
+.text-mybig{
+    font-size: 120px;
+    display: inline;
+}
+
+.text-myhover{
+    color: #007bff;
+}
+
+.text-myhover:hover{
+    color: rgba(242, 47, 25, 0.81);
+    font-weight: 700;
+}
+.text-orange{
+    color: rgba(242, 47, 25, 0.81);
+    font-weight: 700;
+}
