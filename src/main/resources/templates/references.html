@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>苏东坡编年......系统之文献资料库</title>
     <link rel="icon" href="../static/img/favicon1.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="../static/css/style_references.css">
+    <script src="../static/js/jquery-3.5.0.js"></script>
 
+    <link rel="stylesheet" href="../static/css/style_references.css">
+    <script>
+        $(function(){
+            $(document).ready(function(){
+                //加载侧边栏
+                $("#side_bar").load("./side_bar2.html");
+            });
+        })
+    </script>
 </head>
 <body class="font-sans antialiased vsc-initialized" style="background-color: #f6f6f6">
 <div class="text-center p-4 px-6 flex items-center" style="background-color: #ccd6d7">
@@ -32,103 +41,98 @@
         <div class="px-6 md:px-0 flex justify-between items-center -order-1">
             <div>
                 <h2 class="font-normal">文献资料 &amp; 图书</h2>
-                <p class="text-grey-dark mt-2">陆续补充</p>
+                <p class="text-grey-dark mt-2">陆续补充......</p>
             </div>
         </div>
         <!-- Desktop Stats -->
 
         <!-- Filter -->
         <div class="px-6 md:px-0 flex items-baseline justify-between border-b-2 border-grey-light mt-6 order-0 lg:order-1">
-            <h4 class="hidden md:inline-block text-grey-dark font-normal">最近更新2022.05.01</h4>
+            <h4 class="hidden md:inline-block text-grey-dark font-normal">来源网络</h4>
         </div>
         <!-- Library -->
         <div class="hidden px-2 pt-2 md:px-0 flex-wrap order-2 pb-8 js-tab-pane active" id="section-library">
             <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4 js-book"
-                 data-tippy="" onclick="goPdf('苏轼年谱（上）.pdf')">
-                <img src="../static/img/苏轼年谱（上）.png" alt="book-01"
+                 data-tippy="" onclick="goPdf('苏轼年谱（上），孔凡礼撰')">
+                <img src="../static/img/苏轼年谱（上），孔凡礼撰.png" alt="book-01"
                      class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo">
                 <div class="ml-3 sm:ml-0 w-2/3 sm:w-full">
                     <p class="text-sm my-2 font-medium sm:font-normal">苏轼年谱（上），孔凡礼撰</p>
-                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">Eu quo donec pellentesque, urna velit.
-                        Ultrices ante iaculis ligula praesent.</p>
+                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">《苏轼年谱》自1998年2月出版后，深受学界关注，并荣获第四届国家图书奖提名奖。</p>
                 </div>
             </div>
 
             <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4"
-                 onclick="goPdf('01. 信息科学技术学院第十届蓝桥杯大赛校内选拔赛的通知.pdf')">
-                <img src="./Personal Library - Codrops Template_files/book-02.jpg" alt="book-02"
+                 onclick="goPdf('苏轼年谱（中），孔凡礼撰')">
+                <img src="../static/img/苏轼年谱（中），孔凡礼撰.png" alt="book-02"
                      class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo js-book"
                      data-tippy="">
                 <div class="ml-3 sm:ml-0 w-2/3 sm:w-full">
-                    <p class="text-sm my-2 font-medium sm:font-normal">Popeye Aug 2018</p>
-                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">Eu quo donec pellentesque, urna velit.
-                        Ultrices ante iaculis ligula praesent.</p>
+                    <p class="text-sm my-2 font-medium sm:font-normal">苏轼年谱（中），孔凡礼撰</p>
+                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">《苏轼年谱》自1998年2月出版后，深受学界关注，并荣获第四届国家图书奖提名奖。</p>
                 </div>
             </div>
-            <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4">
-                <img src="./Personal Library - Codrops Template_files/book-03.jpg" alt="book-03"
+            <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4"
+                    onclick="goPdf('苏轼年谱（下），孔凡礼撰')">
+                <img src="../static/img/苏轼年谱（下），孔凡礼撰.png" alt="book-03"
                      class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo js-book"
                      data-tippy="">
                 <div class="ml-3 sm:ml-0 w-2/3 sm:w-full">
-                    <p class="text-sm my-2 font-medium sm:font-normal">Brutus Aug 2018</p>
-                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">Eu quo donec pellentesque, urna velit.
-                        Ultrices ante iaculis ligula praesent.</p>
+                    <p class="text-sm my-2 font-medium sm:font-normal">苏轼年谱（下），孔凡礼撰</p>
+                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">《苏轼年谱》自1998年2月出版后，深受学界关注，并荣获第四届国家图书奖提名奖。</p>
                 </div>
             </div>
-            <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4">
-                <img src="./Personal Library - Codrops Template_files/book-04.jpg" alt="book-04"
+            <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4"
+                    onclick="goPdf('苏轼文集（一），孔凡礼点校')">
+                <img src="../static/img/苏轼文集（一），孔凡礼点校.png" alt="book-04"
                      class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo js-book"
                      data-tippy="">
                 <div class="ml-3 sm:ml-0 w-2/3 sm:w-full">
-                    <p class="text-sm my-2 font-medium sm:font-normal">Harnako Aug 2018</p>
-                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">Eu quo donec pellentesque, urna velit.
-                        Ultrices ante iaculis ligula praesent.</p>
-
+                    <p class="text-sm my-2 font-medium sm:font-normal">苏轼文集（一），孔凡礼点校</p>
+                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">本套书收录了苏轼一生的鸿篇巨著。内容丰富资料翔实，是苏学研究者和广大古文学爱好者的一套很具价值的参考书。</p>
                 </div>
             </div>
-            <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4">
-                <img src="./Personal Library - Codrops Template_files/book-05.jpg" alt="book-05"
+            <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4"
+                    onclick="goPdf('苏轼全集校注（诗集部分）')">
+                <img src="../static/img/苏轼诗集（全八册），王文诰辑注.png" alt="book-05"
                      class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo js-book"
                      data-tippy="">
                 <div class="ml-3 sm:ml-0 w-2/3 sm:w-full">
-                    <p class="text-sm my-2 font-medium sm:font-normal">Premium 2 2018</p>
-                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">Eu quo donec pellentesque, urna velit.
-                        Ultrices ante iaculis ligula praesent.</p>
-
+                    <p class="text-sm my-2 font-medium sm:font-normal">苏轼诗集（全八册），王文诰辑注</p>
+                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">《苏轼诗集》内容包括了苏轼的诗词作品，全集本与分类注本迭经翻刻，集注本与编年注本未见流传，选注、选评苏诗成为社会风尚。</p>
                 </div>
             </div>
-            <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4">
-                <img src="./Personal Library - Codrops Template_files/book-06.jpg" alt="book-06"
+            <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4"
+                    onclick="goPdf('苏轼全集校注（诗集部分）')">
+                <img src="../static/img/苏轼全集校注（诗集部分）.png" alt="book-06"
                      class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo js-book"
                      data-tippy="">
                 <div class="ml-3 sm:ml-0 w-2/3 sm:w-full">
-                    <p class="text-sm my-2 font-medium sm:font-normal">Premium 4 2018</p>
-                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">Eu quo donec pellentesque, urna velit.
-                        Ultrices ante iaculis ligula praesent.</p>
-
+                    <p class="text-sm my-2 font-medium sm:font-normal">苏轼全集校注（诗集部分）</p>
+                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">《苏轼全集校注》是第一部对宋代大文豪苏轼的诗集、词集、文集进行全面校勘注释编年辑佚的大型古籍整理著作，代表了当代苏轼诗词文集整理的最高水平。为苏轼研究提供了一个校勘精良、注释完善、编年准确、评论充分的上佳版本，为宋代文化研究呈献出一部资料翔实的百科全书式的著作。 本书由张志烈、马德富、周裕锴担任主编。</p>
                 </div>
             </div>
-            <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4">
-                <img src="./Personal Library - Codrops Template_files/book-07.jpg" alt="book-07"
+            <div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4"
+                    onclick="goPdf('苏轼全集校注（文集部分）')">
+                <img src="../static/img/苏轼全集校注（文集部分）.png" alt="book-07"
                      class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo js-book"
                      data-tippy="">
                 <div class="ml-3 sm:ml-0 w-2/3 sm:w-full">
-                    <p class="text-sm my-2 font-medium sm:font-normal">Brutus Aug 2018</p>
-                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">Eu quo donec pellentesque, urna velit.
-                        Ultrices ante iaculis ligula praesent.</p>
-
+                    <p class="text-sm my-2 font-medium sm:font-normal">苏轼全集校注（文集部分）</p>
+                    <p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">《苏轼全集校注》是第一部对宋代大文豪苏轼的诗集、词集、文集进行全面校勘注释编年辑佚的大型古籍整理著作，代表了当代苏轼诗词文集整理的最高水平。为苏轼研究提供了一个校勘精良、注释完善、编年准确、评论充分的上佳版本，为宋代文化研究呈献出一部资料翔实的百科全书式的著作。 本书由张志烈、马德富、周裕锴担任主编。</p>
                 </div>
             </div>
         </div>
     </div>
     <!-- Profile -->
 </div>
+<div id="side_bar"></div>
 </body>
+
 <script>
     function goPdf(bookName) {
         console.log("bookName", bookName)
         window.open('./pdfShow.html?params=' + bookName);
     }
-
 </script>
 </html>
